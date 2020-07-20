@@ -1,0 +1,98 @@
+<%- include("header") %>
+
+<!--------------------------------- Navigation Bar -------------------------------------->
+<div>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <img src="/images/logo.png" class="img-logo">
+      <a class="navbar-brand brand" href="#">waste manager</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/home/<%=username%>">Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/about/<%= username %>">About</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/my-posts/<%= username %>">My posts</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/add-post/<%= username %>">Add post</a>
+        </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><img src="/images/user.ico" class="img-user"><%= username %></button>
+      <div class="dropdown-content">
+        <a href="/logout">logout</a>
+      </div>
+    </div>
+    </div>
+  </nav>
+</div>
+<!--------------------------------------- Post Form ------------------------------------->
+
+<div class="form form-user-page">
+<form action="/userform" method="POST">
+  <p class="message-sign-up">Post your waste product here</p>
+  <div class="form-group">
+    <label for="ProductName">Product Name</label>
+    <input type="text" class="form-control" id="ProductName" name="productName">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="">Reusable : </label>
+    </div>
+    <div class="form-group col-md-3">
+      <div class="form-check">
+        <input class="form-check-input radio-button" type="radio" name="reusable" id="reusable-yes" value="yes">
+        <label class="form-check-label" for="reusable-yes">Yes</label>
+      </div>
+    </div>
+    <div class="form-group col-md-3">
+      <div class="form-check">
+        <input class="form-check-input radio-button" type="radio" name="reusable" id="reusable-no" value="no">
+        <label class="form-check-label" for="reusable-yes">No</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="2" name="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" name="address">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity" name="city">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control" name="state">
+        <option selected>Choose...</option>
+        <option>kerala</option>
+        <option>Tamilnadu</option>
+        <option>karnataka</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip" name="zip">
+    </div>
+  </div>
+  <input type="hidden" name="username" value="<%= username %>">
+  <button type="submit" class="btn btn-primary">Post</button>
+</form>
+</div>
+
+<%- include("footer") %>

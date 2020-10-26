@@ -1,4 +1,8 @@
-This is a simple waste management web application.
+This is a simple waste management web application created using HTML, CSS, Javascript.
+
+Backend developed using NodeJS.
+
+Database developed using MongoDB.
 
 The user can sign up account and fill the forms to inform the waste details to the authorities.
 
